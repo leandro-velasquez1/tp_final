@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TokenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', IndexController::class);
 
 Route::get('/registrar', [RegisterController::class, 'index']);
+
+Route::get('/generar-token', [TokenController::class, 'index']);
