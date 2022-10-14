@@ -56,7 +56,43 @@ body {
 }
 
 
+.section-register {
+    width: 35%;
+    margin: auto;
+}
+.section-register__title {
+    margin: 0px;
+    text-align: center;
+}
+.section-register__list-errors {
+    padding: 0px;
+    list-style-type: none;
+}
+.section-register__item-error {
+    padding: 5px 10px;
+}
+.form-register {
 
+}
+.form-register__div {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.form-register__label {
+    margin-bottom: 6px;
+}
+.form-register__input {
+    padding: 8px 4px;
+    outline: none;
+}
+.form-register__button {
+    padding: 8px 14px;
+    color: white;
+    background-color: #749F82;
+    border: none;
+    cursor: pointer;
+}
 
 
 
