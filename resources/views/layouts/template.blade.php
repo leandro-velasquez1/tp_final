@@ -8,20 +8,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <div>
-                    <li><a href="/">API Documentacion</a></li>
-                </div>
-                <div>
-                    <li><a href="/generar-token">Generar Token</a></li>
-                    <li><a href="/registrar">Registrarse</a></li>
-                </div>
+    <header class="header">
+        <nav class="nav">
+            <ul class="menu">
+                <li class="menu__li"><a class="menu__a" href="/">API Documentacion</a></li>
+                <li class="menu__li"><a class="menu__a" href="/generar-token">Generar Token</a></li>
+                <li class="menu__li"><a class="menu__a" href="/registrar">Registrarse</a></li>
             </ul>
         </nav>
     </header>
-    @yield('content')
+    <div class="main-container">
+        @yield('content')
+    </div>
     <footer>
         <div>
             <div>
