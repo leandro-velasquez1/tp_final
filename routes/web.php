@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', IndexController::class);
 
-Route::get('/registrar', [RegisterController::class, 'index']);
+Route::get('/registrar', [RegisterController::class, 'create']);
+
+Route::post('/registrar', [RegisterController::class, 'store']);
 
 Route::get('/generar-token', [TokenController::class, 'index']);
