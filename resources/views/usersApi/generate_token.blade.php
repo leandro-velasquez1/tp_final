@@ -2,16 +2,31 @@
 @section('title') Generar token @endsection
 
 @section('content')
-    <h2>Generar token</h2>
-    <form action="">
-        <div>
-            <label for="">Username</label>
-            <input type="text" name="username">
+    <section class="section-register">
+        <h2 class="section-register__title">Generar token</h2>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="section-register__list-errors">
+                @foreach ($errors->all() as $error)
+                    <li class="section-register__item-error">{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
-        <div>
-            <label for="">Password</label>
-            <input type="text" name="password">
-        </div>
-        <button>Solicitar token</button>
-    </form>
+        @endif
+        @isset($error_invalid)
+            <p class="section-register__error_invalid">{{$error_invalid}}</p>
+        @endisset
+        <form class="form-register" action="/generar-token" method="POST">
+            @csrf
+            <div class="form-register__div">
+                <label class="form-register__label" for="">Username</label>
+                <input class="form-register__input" type="text" name="username">
+            </div>
+            <div class="form-register__div">
+                <label class="form-register__label" for="">Password</label>
+                <input class="form-register__input" type="password" name="password">
+            </div>
+            <button class="form-register__button">Solicitar token</button>
+        </form>
+    </section>
 @endsection
