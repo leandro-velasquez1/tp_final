@@ -23,3 +23,4 @@ Route::get('/registrar', [RegisterController::class, 'create']);
 Route::post('/registrar', [RegisterController::class, 'store']);
 
 Route::get('/generar-token', [TokenController::class, 'index']);
+Route::post('/generar-token', [TokenController::class, 'generateToken']);
