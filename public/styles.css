@@ -71,6 +71,10 @@ body {
 .section-register__item-error {
     padding: 5px 10px;
 }
+.section-register__error_invalid {
+    padding: 5px 10px;
+    background-color: #DD5353;
+}
 .form-register {
 
 }
