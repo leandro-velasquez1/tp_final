@@ -98,7 +98,20 @@ body {
     cursor: pointer;
 }
 
-
+.footer {
+    background-color: #749F82;
+}
+.footer-container {
+    display: flex;
+    padding: 0px 15px;
+    color: white;
+}
+.footer-container__div {
+    width: 50%;
+}
+.footer-container__title {
+    text-align: center;
+}
 
 
 
