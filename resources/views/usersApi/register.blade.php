@@ -17,11 +17,11 @@
             @csrf
             <div class="form-register__div">
                 <label class="form-register__label" for="">Username</label>
-                <input class="form-register__input" type="text" name="username">
+                <input class="form-register__input" type="text" name="username" value="{{old('username')}}">
             </div>
             <div class="form-register__div">
                 <label class="form-register__label" for="">Email</label>
-                <input class="form-register__input" type="email" name="email">
+                <input class="form-register__input" type="email" name="email" value="{{old('email')}}">
             </div>
             <div class="form-register__div">
                 <label class="form-register__label" for="">Password</label>
