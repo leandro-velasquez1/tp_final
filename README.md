@@ -16,9 +16,9 @@ Luego tenemos la segunda parte de la aplicacion web la cual esta formada por los
 * DELETE /persons, nos permite eliminar una persona del registro de personas mediante su id
 
 Tambien tenemos la base de datos de la aplicacion formada por 3 tablas mas las tablas que vienen por defecto con Laravel:
-*
-*
-*
+* page_users, en esta tabla se encuentran almacenados los usuarios que se registran en el sitio web para poder solicitar un token
+* access_user_tokens_page, aca estan almacenados los tokens de acceso que se solicitan en la pagina Generar token, solamente se almacena un token por usuario si el usuario ya tenia un token almacenado y vuelve a solicitar otro el anterior es reemplazado por el ultimo que solicito, la tabla tiene una llave foranea que lo relaciona a la columna id de la tabla page_users
+* register_people, en esta tabla se encuentran los registros de las personas, nombre, apellido, telefono, direccion de su casa, con esta tabla trabajan los end-points de la API, los metodos GET, POST, PUT, DELETE afectan a esta tabla
 
 ## Learning Laravel
 
