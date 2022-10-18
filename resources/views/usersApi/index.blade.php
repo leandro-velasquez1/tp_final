@@ -16,22 +16,22 @@
                 <h3>GET</h3>
                 <div>
                     <h4>Request</h4>
-                    <p>End-point: /api/users</p>
+                    <p>End-point: /api/persons</p>
                     <p>Headers: X-AUTH:{token-autorizacion}</p>
                 </div>
                 <div>
                     <h4>Response</h4>
                     <p>descripcion: devuelve todos los usuarios almacenados en la base de datos</p>
-                    <p>Codigos: 200 OK, 401 No autorizado</p>
+                    <p>Codigos: 200 OK, 400 La solicitud contiene un error, 401 No autorizado</p>
                 </div>
             </div>
             <div class="section-documentation__request-info">
                 <h3>POST</h3>
                 <div>
                     <h4>Request</h4>
-                    <p>End-point: /api/users</p>
+                    <p>End-point: /api/persons</p>
                     <p>Headers: X-AUTH:{token-autorizacion}</p>
-                    <p>body: ['nombre'=>{value},'apellido'=>{value}, 'email'=>{value}]</p>
+                    <p>body: ['firstname'=>{value},'lastname'=>{value}, 'phone_number'=>{value}, 'address'=>{valor}]</p>
                 </div>
                 <div>
                     <h4>Response</h4>
@@ -43,9 +43,9 @@
                 <h3>PUT</h3>
                 <div>
                     <h4>Request</h4>
-                    <p>End-point: /api/users</p>
+                    <p>End-point: /api/persons</p>
                     <p>Headers: X-AUTH:{token-autorizacion}</p>
-                    <p>body: ['id'=>{value}, '{campo1}'=>{new value}, '{campo2}'=>{new value}, '{campo3}'=>{new value}...]</p>
+                    <p>body: ['id'=>{value}, 'firstname'=>{new value}, 'lastname'=>{new value}, 'phone_number'=>{new value},'address'=>{new value}]</p>
                 </div>
                 <div>
                     <h4>Response</h4>
@@ -57,7 +57,7 @@
                 <h3>DELETE</h3>
                 <div>
                     <h4>Request</h4>
-                    <p>end-point: /api/users</p>
+                    <p>end-point: /api/persons</p>
                     <p>Headers: X-AUTH:{token-autorizacion}</p>
                     <p>body: ['id'=>{value}]</p>
                 </div>
