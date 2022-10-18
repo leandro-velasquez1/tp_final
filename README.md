@@ -1,25 +1,24 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center">TP Final - API registro de personas</p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## About TP Final
 
-## About Laravel
+API registro de personas es una aplicacion web que esta conformada por 2 partes, la primera es el sitio web que contiene 3 paginas, API documentation, Generar token y Registrarse, el sitio web esta organizado de la siguiente manera:
+* Header, contiene la barra de navegacion dentro de esta se encuentran los items API documentation, generar token y registrarse mediante esta barra podemos acceder a las diferentes paginas que nos ofrece el sitio
+* Una seccion por pagina, en cada una de estas secciones se encuentra la informacion principal de cada pagina:
+     - API documentation, su etiqueta section esta compuesta por distintas etiquetas <div></div> que contienen informacion referente a cada end-point de la API acerca de como podemos consumir dicho end-point cuales son los datos que necesitamos pasarle a la solicitud para que sea exitosa y cuales son las distintas respuestas que nos va enviar la API
+     - Generar token, aca encontramos un formulario mediante el cual al ingresar nuestro nombre de usuario y contraseña se va realizar una validacion para comprobar que los datos ingresados son correctos, una vez que se verifica que la informacion ingresada es correcta el sitio nos genera un token de acceso, este token de acceso es almacenado en una tabla en la base de datos y la pagina nos entrega este token mostrandonoslo mediante una vista, con este token vamos a poder consumir la API llamando a sus distintos end-points.
+     -  Registrarse, aca vamos a encontrar un formulario para rellenar nuestros datos y poder registrarnos para poder solicitar nuestro token, esta pagina tambien posee validaciones para comprobar que la informacion enviada es valida y pueda ser procesada por la aplicacion
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Luego tenemos la segunda parte de la aplicacion web la cual esta formada por los diferentes end-points a los cuales podemos acceder en total son 4:
+* GET /persons, obtiene todos los registros de la base de datos
+* POST /persons, nos permite almacenar una persona en el registro de personas
+* PUT /persons, nos permite modificar los datos de una persona en el registro de personas
+* DELETE /persons, nos permite eliminar una persona del registro de personas mediante su id
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Tambien tenemos la base de datos de la aplicacion formada por 3 tablas mas las tablas que vienen por defecto con Laravel:
+*
+*
+*
 
 ## Learning Laravel
 
