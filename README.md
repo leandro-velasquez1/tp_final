@@ -1,66 +1,33 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center">TP Final - API registro de personas</p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## About TP Final
 
-## About Laravel
+API registro de personas es una aplicacion web que esta conformada por 2 partes, la primera es el sitio web que contiene 3 paginas, API documentation, Generar token y Registrarse, el sitio web esta organizado de la siguiente manera:
+* Header, contiene la barra de navegacion dentro de esta se encuentran los items API documentation, generar token y registrarse mediante esta barra podemos acceder a las diferentes paginas que nos ofrece el sitio
+* Una seccion por pagina, en cada una de estas secciones se encuentra la informacion principal de cada pagina:
+     - API documentation, su etiqueta section esta compuesta por distintas etiquetas de bloque div que contienen informacion referente a cada end-point de la API acerca de como podemos consumir dicho end-point cuales son los datos que necesitamos pasarle a la solicitud para que sea exitosa y cuales son las distintas respuestas que nos va enviar la API
+     - Generar token, aca encontramos un formulario mediante el cual al ingresar nuestro nombre de usuario y contraseña se va realizar una validacion para comprobar que los datos ingresados son correctos, una vez que se verifica que la informacion ingresada es correcta el sitio nos genera un token de acceso, este token de acceso es almacenado en una tabla en la base de datos y la pagina nos entrega este token mostrandonoslo mediante una vista, con este token vamos a poder consumir la API llamando a sus distintos end-points.
+     -  Registrarse, aca vamos a encontrar un formulario para rellenar nuestros datos y poder registrarnos para poder solicitar nuestro token, esta pagina tambien posee validaciones para comprobar que la informacion enviada es valida y pueda ser procesada por la aplicacion
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Luego tenemos la segunda parte de la aplicacion web la cual esta formada por los diferentes end-points a los cuales podemos acceder en total son 4, debemos anteponer siempre antes del end-point la palabra api/:
+* GET /persons, obtiene todos los registros de la base de datos
+* POST /persons, nos permite almacenar una persona en el registro de personas
+* PUT /persons, nos permite modificar los datos de una persona en el registro de personas
+* DELETE /persons, nos permite eliminar una persona del registro de personas mediante su id
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Tambien tenemos la base de datos de la aplicacion formada por 3 tablas mas las tablas que vienen por defecto con Laravel:
+* page_users, en esta tabla se encuentran almacenados los usuarios que se registran en el sitio web para poder solicitar un token
+* access_user_tokens_page, aca estan almacenados los tokens de acceso que se solicitan en la pagina Generar token, solamente se almacena un token por usuario si el usuario ya tenia un token almacenado y vuelve a solicitar otro el anterior es reemplazado por el ultimo que solicito, la tabla tiene una llave foranea que lo relaciona a la columna id de la tabla page_users
+* register_people, en esta tabla se encuentran los registros de las personas, nombre, apellido, telefono, direccion de su casa, con esta tabla trabajan los end-points de la API, los metodos GET, POST, PUT, DELETE afectan a esta tabla
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Utilizamos migraciones para definir la estructura de cada tabla de esta forma conseguimos tener un mayor control y un mejor seguimiento a los distintos cambios que se realizen en la estructura de la base de datos asi tambien permite a nuestros compañeros actualizar y tener disponibles con mayor facilidad los distintos cambios que ocurran en la estructura de la base de datos evitando errores.
 
-## Learning Laravel
+Para cargar la tabla register_people con datos y poder hacer pruebas utilizamos una factory denominada RegisterPeopleFactory la cual se encuentra en database/factories, los datos los obtuvimos haciendo uso de la libreria faker.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+En el lado del back de la aplicacion tambien tenemos en total 4 controladores, 3 de ellos se encargan de administrar sus respectivas paginas en el sitio web y 1 de ellas es la encargada de recibir y procesar las distintas solicitudes que se le hacen a la API:
+* Controladores del sitio web:
+   - IndexController, este controlador es el encargado de la pagina inicial API Documentation, solamente posee un metodo __invoke() que es el encargado de retornar la vista que se va ser mostrada en la pagina
+   - RegisterController, luego este controlador se encarga de la pagina Registrarse posee 2 metodos create() y store(), create() se encarga de mostrar la vista en la cual se encuentra el formulario para registrar al usuario, por su lado store() es el que recibe la informacion introducida en el formulario, aca se realiza la validacion de la informacion y se instancia un model para poder almacenar al usuario en la base de datos, como ultimo paso realiza una redireccion a API Documentation enviando un mensaje para que se muestre en pantalla informando que el usuario fue registrado exitosamente.
+   - TokenController, este controlador tiene en total 2 metodos, el metodo index() el cual se encarga de retornar una vista la cual contiene el formulario para solicitar un token de acceso y el otro metodo es generateToken() este metodo se encarga de procesar la informacion enviada en el formulario y si los datos son correctos genera un token, este token es almacenado en la base de datos, luego se hace una direccion a API Documentation donde se muestra un mensaje en pantalla informando que el token fue creado con exito y se expone en pantalla dicho token.
+* Controladores de la API:
+   - PersonController, este controlador es el encargado de procesar las solicitudes de los distintos metodos GET, POST, PUT y DELETE hechas a la API, posee 4 metodos, getAll() encargado del GET, store() encargado de POST, update() encargado de PUT y delete() se encarga de DELETE todos ellos se ocupan de la misma ruta la cual es /persons pero son responsables de distintos verbos HTTP
