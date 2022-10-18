@@ -20,13 +20,14 @@
     <div class="main-container">
         @yield('content')
     </div>
-    <footer>
-        <div>
-            <div>
-                <h3>Acerca de</h3>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-container__div">
+                <h3 class="footer-container__title">Acerca de</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, alias. Odit aliquam magni explicabo amet libero doloremque tempora natus sunt. Laboriosam debitis iusto perspiciatis molestiae odit in quis dolorem perferendis.</p>
             </div>
-            <div>
-                <h3>Redes</h3>
+            <div class="footer-container__div">
+                <h3 class="footer-container__title">Redes</h3>
             </div>
         </div>
     </footer>
