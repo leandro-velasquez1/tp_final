@@ -24,18 +24,8 @@ Utilizamos migraciones para definir la estructura de cada tabla de esta forma co
 
 Para cargar la tabla register_people con datos y poder hacer pruebas utilizamos una factory denominada RegisterPeopleFactory la cual se encuentra en database/factories, los datos los obtuvimos haciendo uso de la libreria faker.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+En el lado del back de la aplicacion tambien tenemos en total 4 controladores, 3 de ellos se encargan de administrar sus respectivas paginas en el sitio web y 1 de ellas es la encargada de recibir y procesar las distintas solicitudes que se le hacen a la API:
+* Controladores del sitio web:
+   - IndexController, este controlador es el encargado de la pagina inicial API Documentation, solamente posee un metodo __invoke() que es el encargado de retornar la vista que se va ser mostrada en la pagina
+   - RegisterController, luego este controlador se encarga de la pagina Registrarse posee 2 metodos create() y store(), create() se encarga de mostrar la vista en la cual se encuentra el formulario para registrar al usuario, por su lado store() es el que recibe la informacion introducida en el formulario, aca se realiza la validacion de la informacion y se instancia un model para poder almacenar al usuario en la base de datos, como ultimo paso realiza una redireccion a API Documentation enviando un mensaje para que se muestre en pantalla informando que el usuario fue registrado exitosamente.
+   - TokenController, este controlador tiene en total 2 metodos, el metodo index() el cual se encarga de retornar una vista la cual contiene el formulario para solicitar un token de acceso y el otro metodo es generateToken() este metodo se encarga de procesar la informacion enviada en el formulario y si los datos son correctos genera un token, este token es almacenado en la base de datos, luego se hace una direccion a API Documentation donde se muestra un mensaje en pantalla informando que el token fue creado con exito y se expone en pantalla dicho token.
