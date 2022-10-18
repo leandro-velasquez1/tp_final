@@ -34,4 +34,24 @@ class PersonController extends Controller
         }
         return response(['error'=>'Falta token de acceso'], 400)->header('Content-Type', 'application/json');
     }
+
+    public function update(Request $request) {
+        if($request->hasHeader('X-Auth')) {
+            if(AccessUserTokenPage::where('token', $request->header('X-Auth'))->first()) {
+                if($person = RegisterPeople::find($request->input('id'))) {
+                    foreach($request->all() as $key=>$value) {
+                        if($key != 'id') {
+                            $person->$key = $value;
+                        }
+                    }
+                    $person->save();
+                    return response(['id'=>$person->id], 200)->header('Content-Type', 'application/json');
+                }else {
+                    return response(['error'=>'No se encontro ninguna persona con ese id'], 404)->header('Content-Type', 'application/json');
+                }
+            }
+            return response(['error'=>'Token no valido'], 401)->header('Content-Type', 'application/json');
+        }
+        return response(['error'=>'Falta token de acceso'], 400)->header('Content-Type', 'application/json');
+    }
 }
