@@ -2,7 +2,7 @@
 @section('title') Generar token @endsection
 
 @section('content')
-    <section class="section-register">
+    <section class="section-register section-generate-token">
         <h2 class="section-register__title">Generar token</h2>
         @if ($errors->any())
         <div class="alert alert-danger">
