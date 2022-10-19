@@ -115,6 +115,26 @@ body {
     /*padding: 120px 0px;*/
 }
 
+
+.section-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-about__div {
+    width: 40%;
+}
+.section-about__title {
+
+}
+.section-about__text {
+
+}
+.section-about__enlace {
+
+}
+
+
 .footer {
     background-color: #749F82;
 }
