@@ -1,5 +1,15 @@
 <p align="center">TP Final - API registro de personas</p>
 
+## Instalacion
+
+Debemos ejecutar los siguientes comandos para instalar la aplicacion:
+  - composer install
+  - cp .env.example .env
+  - php artisan key:generate
+  - php artisan migrate , Cuando ejecutamos este comando si previamente no creamos la base de datos con el nombre tp_final laravel nos va dar la opcion de crearla automaticamente en ese caso escribimos yes y presionamos Enter cuando nos pregunte
+  - php artisan serve
+  - Listo ahora simplemente abrimos una pestaña del navegador e ingresamos a la direccion url que nos proporciono laravel para el servidor local
+
 ## About TP Final
 
 API registro de personas es una aplicacion web que esta conformada por 2 partes, la primera es el sitio web que contiene 3 paginas, API documentation, Generar token y Registrarse, el sitio web esta organizado de la siguiente manera:
