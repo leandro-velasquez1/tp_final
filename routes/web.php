@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TokenController;
@@ -24,3 +25,5 @@ Route::post('/registrar', [RegisterController::class, 'store']);
 
 Route::get('/generar-token', [TokenController::class, 'index']);
 Route::post('/generar-token', [TokenController::class, 'generateToken']);
+
+Route::get('/about', AboutController::class);
