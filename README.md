@@ -7,6 +7,7 @@ Debemos ejecutar los siguientes comandos para instalar la aplicacion:
   - cp .env.example .env
   - php artisan key:generate
   - php artisan migrate , Cuando ejecutamos este comando si previamente no creamos la base de datos con el nombre tp_final laravel nos va dar la opcion de crearla automaticamente en ese caso escribimos yes y presionamos Enter cuando nos pregunte
+  - php artisan db:seed, Este comando es opcional lo usamos si queremos cargar la base de datos con datos de prueba para consumir la API
   - php artisan serve
   - Listo ahora simplemente abrimos una pestaña del navegador e ingresamos a la direccion url que nos proporciono laravel para el servidor local
 
@@ -41,3 +42,8 @@ En el lado del back de la aplicacion tambien tenemos en total 4 controladores, 3
    - TokenController, este controlador tiene en total 2 metodos, el metodo index() el cual se encarga de retornar una vista la cual contiene el formulario para solicitar un token de acceso y el otro metodo es generateToken() este metodo se encarga de procesar la informacion enviada en el formulario y si los datos son correctos genera un token, este token es almacenado en la base de datos, luego se hace una direccion a API Documentation donde se muestra un mensaje en pantalla informando que el token fue creado con exito y se expone en pantalla dicho token.
 * Controladores de la API:
    - PersonController, este controlador es el encargado de procesar las solicitudes de los distintos metodos GET, POST, PUT y DELETE hechas a la API, posee 4 metodos, getAll() encargado del GET, store() encargado de POST, update() encargado de PUT y delete() se encarga de DELETE todos ellos se ocupan de la misma ruta la cual es /persons pero son responsables de distintos verbos HTTP
+
+Otro punto importante es que para conectarnos con la base de datos y extraer o insertar recursos hacemos uso del ORM de Eloquent para ello hacemos uso de Models, en total tenemos 4 Models, 3 creados por nosotros y 1 que viene por defecto con Laravel. Cada Model se encarga de una tabla, estan asignados de la siguiente forma:
+  - AccessUserTokenPage, se encarga de los tokens ya sea almacenar un nuevo token o consultar un token en la base de datos, la tabla que tiene asociada es access_user_tokens_page
+  - PageUser, este Model es el encargado de almacenar y realizar consultas a la tabla page_users
+  - RegisterPeople, tiene asignada la tabla register_people mediante este model hacemos uso de la Factory RegisterPeopleFactory para generar los datos de prueba que luego van a ser consumidos al llamar a la API
