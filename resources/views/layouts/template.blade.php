@@ -14,6 +14,7 @@
                 <li class="menu__li"><a class="menu__a" href="/">API Documentacion</a></li>
                 <li class="menu__li"><a class="menu__a" href="/generar-token">Generar Token</a></li>
                 <li class="menu__li"><a class="menu__a" href="/registrar">Registrarse</a></li>
+                <li class="menu__li"><a class="menu__a" href="/about">Acerca de</a></li>
             </ul>
         </nav>
     </header>
